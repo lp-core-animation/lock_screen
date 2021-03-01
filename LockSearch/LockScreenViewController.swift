@@ -1,25 +1,3 @@
-/*
- * Copyright (c) 2016-present Razeware LLC
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- */
-
 // image by NASA: https://www.flickr.com/photos/nasacommons/29193068676/
 
 import UIKit
@@ -53,6 +31,31 @@ class LockScreenViewController: UIViewController {
     tableView.estimatedRowHeight = 130.0
     tableView.rowHeight = UITableView.automaticDimension
   }
+
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    tableView.transform = CGAffineTransform(scaleX: 0.67, y: 0.67)
+    tableView.alpha = 0
+  }
+
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    let scale = UIViewPropertyAnimator(duration: 0.33, curve: .easeIn)
+    scale.addAnimations {
+      self.tableView.alpha = 1.0
+    }
+
+    scale.addAnimations({
+      self.tableView.transform = .identity
+    }, delayFactor: 0.33)
+
+    scale.addCompletion { _ in
+      print("ready")
+    }
+
+    scale.startAnimation()
+  }
+  
 
   override func viewWillLayoutSubviews() {
     blurView.frame = view.bounds
