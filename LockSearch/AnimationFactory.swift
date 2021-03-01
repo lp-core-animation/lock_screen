@@ -24,6 +24,7 @@ class AnimatorFactory {
     return scale
   }
 
+  @discardableResult
   static func jiggle(view: UIView) -> UIViewPropertyAnimator {
     return UIViewPropertyAnimator.runningPropertyAnimator(
       withDuration: 0.33, delay: 0, animations: {
@@ -44,6 +45,8 @@ class AnimatorFactory {
         },
           completion: nil
         )
-      }, completion: {_ in  } )
+      }, completion: {_ in
+        view.transform = .identity
+      })
     }
 }
