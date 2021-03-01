@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		754848D925ED8CC400529C79 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 754848D825ED8CC400529C79 /* .gitignore */; };
+		754848DB25ED903600529C79 /* AnimationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754848DA25ED903600529C79 /* AnimationFactory.swift */; };
 		9C125E081DAEEFBF00E352C1 /* IconCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C125E071DAEEFBF00E352C1 /* IconCell.swift */; };
 		9C5513E41DB2619E0085E8A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C5513E31DB2619E0085E8A7 /* Assets.xcassets */; };
 		9C7446771DB2995E0075364A /* WidgetsOwnerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7446761DB2995E0075364A /* WidgetsOwnerProtocol.swift */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		754848D825ED8CC400529C79 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		754848DA25ED903600529C79 /* AnimationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationFactory.swift; sourceTree = "<group>"; };
 		9C125E071DAEEFBF00E352C1 /* IconCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconCell.swift; sourceTree = "<group>"; };
 		9C5513E31DB2619E0085E8A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9C7446761DB2995E0075364A /* WidgetsOwnerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidgetsOwnerProtocol.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				9CF8DFCB1DAFBD8100060AC5 /* Lock Screen View Controller */,
 				9C3A2E351DAFBDEC00384C68 /* Settings View Controller */,
 				9C9E23F51DAD251B004749FD /* AppDelegate.swift */,
+				754848DA25ED903600529C79 /* AnimationFactory.swift */,
 			);
 			name = Widgets;
 			path = LockSearch;
@@ -206,6 +209,7 @@
 				9C9A08A31DAD335A0080F439 /* WidgetCell.swift in Sources */,
 				9C7446791DB29B340075364A /* IconEffectView.swift in Sources */,
 				9C9CC9F81DAD63B9006D4177 /* WidgetView.swift in Sources */,
+				754848DB25ED903600529C79 /* AnimationFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
