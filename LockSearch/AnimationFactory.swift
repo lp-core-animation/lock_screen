@@ -10,6 +10,16 @@ import UIKit
 
 class AnimatorFactory {
 
+  static func toggleBlur(_ blurred: Bool, view: UIView) {
+    UIViewPropertyAnimator.runningPropertyAnimator(
+      withDuration: 0.5, delay: 0.1, options: .curveEaseOut,
+      animations: {
+        view.alpha = blurred ? 1 : 0
+      },
+      completion: nil
+    )
+  }
+
   static func scaleUp(view: UIView) -> UIViewPropertyAnimator {
     let scale = UIViewPropertyAnimator(duration: 0.33, curve: .easeIn)
     scale.addAnimations {
