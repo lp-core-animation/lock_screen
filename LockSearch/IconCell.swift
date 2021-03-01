@@ -26,7 +26,13 @@ class IconCell: UICollectionViewCell {
   @IBOutlet weak var name: UILabel!
   @IBOutlet weak var icon: UIImageView!
 
+  var animator: UIViewPropertyAnimator?
+
   func iconJiggle() {
-    AnimatorFactory.jiggle(view: icon)
+    if animator != nil && animator!.isRunning {
+      return
+    } else {
+      animator = AnimatorFactory.jiggle(view: icon)
+    }
   }
 }
