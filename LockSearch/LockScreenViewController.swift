@@ -23,8 +23,6 @@ class LockScreenViewController: UIViewController {
     }.stretchableImage(withLeftCapWidth: 11, topCapHeight: 11)
     searchBar.setSearchFieldBackgroundImage(image, for: .normal)
     view.bringSubviewToFront(searchBar)
-    blurView.effect = UIBlurEffect(style: .dark)
-    blurView.alpha = 0
     blurView.isUserInteractionEnabled = false
     view.insertSubview(blurView, belowSubview: searchBar)
 
@@ -54,7 +52,20 @@ class LockScreenViewController: UIViewController {
   }
 
   func toggleBlur(_ blurred: Bool) {
-    AnimatorFactory.toggleBlur(blurred, view: blurView)
+    UIViewPropertyAnimator(duration: 0.55,
+                           curve: .easeOut,
+                           animations: blurAnimations(blurred))
+      .startAnimation()
+  }
+
+  func blurAnimations(_ blurred: Bool) -> () -> Void {
+    return {
+      self.blurView.effect = blurred ?
+        UIBlurEffect(style: .dark) : nil
+      self.tableView.transform = blurred ?
+        CGAffineTransform(scaleX: 0.75, y: 0.75) : .identity
+      self.tableView.alpha = blurred ? 0.33 : 1.0
+    }
   }
 
   @IBAction func presentSettings(_ sender: Any? = nil) {
